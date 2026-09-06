@@ -1,0 +1,113 @@
+generated: '2026-09-06'
+method: probed
+source: >-
+  Live probe of the named /.well-known/ path list plus /apis.json, /apis.yml and the contract
+  discovery roots, against every host this record knows (abderatx.com and www.abderatx.com — the
+  company's own site per its press-release boilerplate). No apis[] entry exists, so there is no
+  baseURL host and no OpenAPI servers[] host to add to the set.
+hit_count: 0
+path_echo_control: passed
+note: >-
+  Nothing is served. Every path returned HTTP 404 with an identical 48,103-byte Flywheel
+  "Unknown Domain" host-error page — the same body the site root returns — so the host is not
+  a catch-all answering 200, it is a managed-WordPress host that no longer has abderatx.com
+  mapped to a site at all. The TLS certificate presented (CN=www.abderatx.com, Let's Encrypt R12)
+  expired 2026-07-19, so every probe required certificate verification to be disabled. The
+  negative-control path returned 404 like everything else, confirming the host does not echo
+  requested paths back as documents. No WellKnown and no SecurityTxt pointer is emitted: this
+  file records a documented absence, not a served surface.
+tls:
+  verification: failed
+  reason: certificate expired 2026-07-19
+  subject: CN=www.abderatx.com
+  issuer: "C=US, O=Let's Encrypt, CN=R12"
+hosts:
+- host: https://abderatx.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/abderatherapeutics-negative-control-7f3ab91c.json
+    status: 404
+- host: https://www.abderatx.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/abderatherapeutics-negative-control-7f3ab91c.json
+    status: 404
+contract_discovery:
+  note: >-
+    STEP 0b run in full before recording "no contract". Every probe missed for the same reason —
+    the host serves nothing.
+  probes:
+  - url: https://abderatx.com/openapi.json
+    status: 404
+  - url: https://abderatx.com/swagger.json
+    status: 404
+  - url: https://abderatx.com/llms.txt
+    status: 404
+  - url: https://abderatx.com/wp-json/
+    status: 404
+  - url: https://www.abderatx.com/openapi.json
+    status: 404
+  - url: https://www.abderatx.com/swagger.json
+    status: 404
+  - url: https://www.abderatx.com/llms.txt
+    status: 404
+  - url: https://abderatx.com/pipeline/
+    status: 404
+  - url: https://api.github.com/orgs/abderatx
+    status: 404
+  - url: https://api.github.com/orgs/abdera-therapeutics
+    status: 404
+  - url: https://api.github.com/orgs/abderatherapeutics
+    status: 404
+  graphql: not-probed — no /graphql surface is named in any documentation or DNS record
+  mcp: not-probed — no MCP endpoint is published or advertised anywhere
+  ogc: not-applicable — no geospatial evidence; probing blind path patterns is out of contract
+  a2a: probed at both /.well-known/agent-card.json and /.well-known/agent.json on both hosts, 404
+  grpc: not-found — no GitHub organization and no buf.build presence
+  wsdl: not-found — no SOAP surface named in any public material

@@ -1,17 +1,47 @@
 aid: abderatherapeutics
-name: Abderatherapeutics
-description: 'Abderatherapeutics is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+name: Abdera Therapeutics
+description: >-
+  Abdera Therapeutics is a clinical-stage biopharmaceutical company headquartered in South San
+  Francisco, California, with research operations in Vancouver, British Columbia. It was launched in
+  2021 out of adMare BioInnovations with AbCellera as a founding partner and has raised roughly $148
+  million from investors including Versant Ventures, Foresite Capital, Johnson & Johnson Innovation
+  (JJDC), Qiming Venture Partners USA, RTW Investments and venBio. The company engineers precision
+  radiopharmaceuticals for solid tumours on its proprietary Radio Optimized Vector Engineering
+  (ROVEr) platform, which pairs antibody-derived targeting vectors with potent alpha-emitting
+  radioisotopes such as actinium-225. Its lead candidate, ABD-147, targets delta-like ligand 3
+  (DLL3) and is in a Phase 1 trial (NCT06736418) in small cell lung cancer and large cell
+  neuroendocrine carcinoma under FDA Fast Track designation; a second program, ABD-320, targets 5T4.
+  Abdera's product is a drug candidate, not software. It runs no developer program and publishes no
+  API, developer portal, API reference, SDK, or machine-readable specification of any kind. As of
+  2026-09-06 the company's own corporate site at www.abderatx.com was additionally unreachable,
+  returning a Flywheel "Unknown Domain" host error on every path behind a TLS certificate that
+  expired on 2026-07-19.
 url: https://raw.githubusercontent.com/api-evangelist/abderatherapeutics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enriched
 specificationVersion: '0.20'
 created: '2026-09-06'
 modified: '2026-09-06'
 tags:
 - Company
+- Biotechnology
+- Pharmaceuticals
+- Radiopharmaceuticals
+- Oncology
+- Drug Development
+- Clinical Trials
+- Life Sciences
+tags_raw:
+- Company
+- biotechnology
+- pharmaceuticals
+- radiopharmaceuticals
+- oncology
+- drug-development
+- clinical-trials
+- life-sciences
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +50,34 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
+  url: https://www.abderatx.com/
+- type: SecondaryMarket
   url: https://equityzen.com/company/abderatherapeutics
+- type: DomainSecurity
+  url: security/abderatherapeutics-domain-security.yml
+x-enrichment:
+  date: '2026-09-06'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Abdera Therapeutics is a clinical-stage radiopharmaceutical developer whose product is a drug
+    candidate (ABD-147, ABD-320), not software — there is no developer program to profile, and the
+    point is moot in any case because its entire corporate site at www.abderatx.com now returns a
+    Flywheel "Unknown Domain" 404 on every path, including the root, behind a TLS certificate that
+    expired on 2026-07-19.
+  evidence:
+  - url: https://www.abderatx.com/
+    status: 404
+  - url: https://abderatx.com/pipeline/
+    status: 404
+  - url: https://abderatx.com/.well-known/security.txt
+    status: 404
+  - url: https://abderatx.com/openapi.json
+    status: 404
+  - url: https://api.github.com/orgs/abderatx
+    status: 404
+  checked: '2026-09-06'
